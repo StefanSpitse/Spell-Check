@@ -26,6 +26,8 @@ def get(setting: str = typer.Argument(..., help="""Command that you want to see.
         print("[ERROR] " + setting + " is not a setting that you can change")
 
 
+
+
 def config_return(setting):
     with open("./config/config.json", "r") as f:
         f = json.load(f)
