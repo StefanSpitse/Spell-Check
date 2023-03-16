@@ -1,9 +1,10 @@
 import enchant
-from Spellcheck import config
+
+from config import config
 
 
 def main(file):
-    d = enchant.Dict(config.dic_language)
+    d = enchant.Dict(config.config_return('LANGUAGE'))
     open_file = open(file, "r+")
     words = []
     for i in open_file.readlines():
@@ -11,7 +12,7 @@ def main(file):
 
     for _x in range(len(words)):
         for _a in range(len(words[_x])):
-            for char in config.charachter_filter:
+            for char in config.config_return('CHARACHTER_FILTER'):
                 words[_x][_a] = words[_x][_a].replace(char, "")
 
             if d.check(words[_x][_a]):

@@ -1,0 +1,8 @@
+{
+  "SPELLCHECK": {
+    "LANGUAGE": "en_US",
+    "CHARACHTER_FILTER": [".", ",", ":", ";", "{", "}", "[", "]", "(", ")", "?", "_", "-", "+", "=", "!", "\""],
+    "UPDATE OPTION": false
+
+  }
+}
