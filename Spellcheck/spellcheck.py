@@ -7,10 +7,7 @@ def main(file):
     open_file = open(file, "r+")
     words = []
     for i in open_file.readlines():
-        if i == "\n":
-            pass
-        else:
-            words.append(i.split(sep=None))
+        words.append(i.split(sep=None))
 
     for _x in range(len(words)):
         for _a in range(len(words[_x])):
@@ -20,4 +17,4 @@ def main(file):
             if d.check(words[_x][_a]):
                 pass
             else:
-                print(f"{words[_x][_a]} might be wrong")
+                print(f"[line:{words.index(words[_x]) + 1}][word: {words[_x].index(words[_x][_a]) + 1}] {words[_x][_a]}")
