@@ -13,13 +13,17 @@ def set():
 
 
 @app.command()
-def get():
-    pass
-
-
-@app.command()
-def list():
-    config_return("dsda")
+def get(setting: str = typer.Argument(..., help="""Command that you want to see.""")):
+    """Retrieve the value from a configured setting."""
+    try:
+        setting = setting.upper()
+        returned_value = config_return(setting)
+        if isinstance(returned_value, list):
+            print(*returned_value, sep=" ")
+        else:
+            print(f"{setting}: {returned_value}")
+    except KeyError:
+        print("[ERROR] " + setting + " is not a setting that you can change")
 
 
 def config_return(setting):
