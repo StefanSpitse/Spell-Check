@@ -17,9 +17,7 @@ def get():
     pass
 
 
-@app.command()
-def list():
-    config_return("dsda")
+
 
 
 def config_return(setting):
