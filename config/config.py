@@ -8,8 +8,19 @@ app = typer.Typer()
 
 
 @app.command()
-def set():
-    pass
+def set(setting: str = typer.Argument(..., help="""command that you want to change"""),
+        value: str = typer.Argument(..., help="""The value you want to set.""")):
+    try:
+        setting = setting.upper()
+
+        with open("./config/config.json", "r") as fr:
+            file = json.load(fr)
+            file['SPELLCHECK'][setting] = value
+            fr.close()
+            with open("./config/config.json", "w") as fw:
+                json.dump(file, fw, indent=4)
+    except KeyError:
+        print("[ERROR] " + setting + " is not a setting that you can change")
 
 
 @app.command()
@@ -23,9 +34,7 @@ def get(setting: str = typer.Argument(..., help="""Command that you want to see.
         else:
             print(f"{setting}: {returned_value}")
     except KeyError:
-        print("[ERROR] " + setting + " is not a setting that you can change")
-
-
+        print("[ERROR] " + setting + " is not a setting.")
 
 
 def config_return(setting):
