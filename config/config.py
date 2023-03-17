@@ -37,6 +37,14 @@ def get(setting: str = typer.Argument(..., help="""Command that you want to see.
         print("[ERROR] " + setting + " is not a setting.")
 
 
+@app.command()
+def List():
+    with open("./config/config.json", "r") as f:
+        f = json.load(f)
+        for setting in f['SPELLCHECK']:
+            print(setting)
+
+
 def config_return(setting):
     with open("./config/config.json", "r") as f:
         f = json.load(f)
