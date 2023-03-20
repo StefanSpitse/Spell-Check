@@ -1,6 +1,9 @@
 import enchant
 
+from colorama import init, Fore, Style
 from config import config
+
+init(autoreset=True)
 
 
 def main(file):
@@ -19,4 +22,5 @@ def main(file):
                 pass
             else:
                 print(
-                    f"[line:{words.index(words[_x]) + 1}][word: {words[_x].index(words[_x][_a]) + 1}] {words[_x][_a]}")
+                    Fore.YELLOW + f"[line:{words.index(words[_x]) + 1}][word: {words[_x].index(words[_x][_a]) + 1}] "
+                    + Fore.RED + f"{words[_x][_a]}")

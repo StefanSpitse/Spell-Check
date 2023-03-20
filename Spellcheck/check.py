@@ -1,9 +1,11 @@
 import typer
 import os
 
+from colorama import init, Fore, Style
 from Spellcheck import __version__, __appname__, ERRORS, spellcheck
 
 app = typer.Typer(),
+init()
 
 
 def main(file: str):
@@ -12,4 +14,4 @@ def main(file: str):
     if os.path.exists(file):
         spellcheck.main(file)
     else:
-        print("Error: " + ERRORS[1] + f" could not find {file}")
+        print(Fore.RED + "Error: " + ERRORS[1] + f" could not find {file}")
