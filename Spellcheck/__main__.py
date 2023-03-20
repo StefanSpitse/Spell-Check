@@ -13,12 +13,9 @@ def main():
 
 
 @app.command()
-def check(file: str = typer.Argument(..., help="""File that gets checked for errors"""),
-          update: bool = typer.Option(False,
-                                      help="after getting feedback on the text when turned on it wil give you a "
-                                           "change to immedtialy change it")):
+def check(file: str = typer.Argument(..., help="""File that gets checked for errors"""),):
     """Checks the given file for any spelling errors."""
-    ch.main(file, update)
+    ch.main(file)
 
 
 if __name__ == "__main__":

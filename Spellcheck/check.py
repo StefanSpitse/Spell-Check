@@ -6,7 +6,7 @@ from Spellcheck import __version__, __appname__, ERRORS, spellcheck
 app = typer.Typer(),
 
 
-def main(file: str, update: bool):
+def main(file: str):
     """Checks the given file for any spelling errors."""
     file = os.path.abspath(file)
     if os.path.exists(file):
