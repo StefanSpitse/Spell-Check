@@ -18,4 +18,5 @@ def main(file):
             if d.check(words[_x][_a]):
                 pass
             else:
-                print(f"[line:{words.index(words[_x]) + 1}][word: {words[_x].index(words[_x][_a]) + 1}] {words[_x][_a]}")
+                print(
+                    f"[line:{words.index(words[_x]) + 1}][word: {words[_x].index(words[_x][_a]) + 1}] {words[_x][_a]}")

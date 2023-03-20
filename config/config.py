@@ -10,6 +10,7 @@ app = typer.Typer()
 @app.command()
 def set(setting: str = typer.Argument(..., help="""command that you want to change"""),
         value: str = typer.Argument(..., help="""The value you want to set.""")):
+    """Change the value of a configured setting."""
     try:
         setting = setting.upper()
 
@@ -39,10 +40,17 @@ def get(setting: str = typer.Argument(..., help="""Command that you want to see.
 
 @app.command()
 def List():
+    """Get a list of all the variables you can change."""
     with open("./config/config.json", "r") as f:
         f = json.load(f)
         for setting in f['SPELLCHECK']:
             print(setting)
+
+
+@app.callback()
+def config():
+    """Change config options."""
+    pass
 
 
 def config_return(setting):
