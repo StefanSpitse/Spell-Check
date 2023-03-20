@@ -1,8 +1,7 @@
 import typer
 
-from Spellcheck import check as ch
-from Spellcheck import __version__, __appname__
-from config import config
+from app import check as ch
+from app.config import config
 
 app = typer.Typer()
 

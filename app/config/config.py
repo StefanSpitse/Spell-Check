@@ -2,7 +2,7 @@ import typer
 import os
 import json
 
-from Spellcheck import __version__, __appname__, ERRORS, spellcheck
+from app import __version__, __appname__, ERRORS, spellcheck
 
 app = typer.Typer()
 
@@ -14,11 +14,11 @@ def set(setting: str = typer.Argument(..., help="""command that you want to chan
     try:
         setting = setting.upper()
 
-        with open("./config/config.json", "r") as fr:
+        with open("./app/config/config.json", "r") as fr:
             file = json.load(fr)
             file['SPELLCHECK'][setting] = value
             fr.close()
-            with open("./config/config.json", "w") as fw:
+            with open("./app/config/config.json", "w") as fw:
                 json.dump(file, fw, indent=4)
     except KeyError:
         print("[ERROR] " + setting + " is not a setting that you can change")
@@ -41,7 +41,7 @@ def get(setting: str = typer.Argument(..., help="""Command that you want to see.
 @app.command()
 def List():
     """Get a list of all the variables you can change."""
-    with open("./config/config.json", "r") as f:
+    with open("./app/config/config.json", "r") as f:
         f = json.load(f)
         for setting in f['SPELLCHECK']:
             print(setting)
@@ -54,6 +54,6 @@ def config():
 
 
 def config_return(setting):
-    with open("./config/config.json", "r") as f:
+    with open("./app/config/config.json", "r") as f:
         f = json.load(f)
         return f['SPELLCHECK'][setting]

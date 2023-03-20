@@ -1,7 +1,7 @@
 import enchant
 
-from colorama import init, Fore, Style
-from config import config
+from colorama import init, Fore
+from app.config import config
 
 init(autoreset=True)
 

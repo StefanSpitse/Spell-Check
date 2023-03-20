@@ -2,7 +2,7 @@ import typer
 import os
 
 from colorama import init, Fore, Style
-from Spellcheck import __version__, __appname__, ERRORS, spellcheck
+from app import __version__, __appname__, ERRORS, spellcheck
 
 app = typer.Typer(),
 init()

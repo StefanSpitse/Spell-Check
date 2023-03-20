@@ -9,6 +9,9 @@ colorama = "*"
 shellingham = "*"
 pytest = "*"
 pyenchant = "*"
+wheel = "*"
+twine = "*"
+setuptools = "*"
 
 [dev-packages]
 
